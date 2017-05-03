@@ -8,13 +8,13 @@
 			<!--<animation effect="slide" end="0,1080" time="45" tween="sine" condition="!Control.HasFocus(132) + !ControlGroup(5000).HasFocus">WindowClose</animation>-->
 			<!--<animation effect="slide" end="-749,0" time="45" tween="sine" easing="inout" condition="!Control.HasFocus(132) + !ControlGroup(5000).HasFocus">Conditional</animation>-->
 			<control type="image">
-				<left>729</left>
+				<left>499</left>
 				<width>1950</width>
 				<height>1080</height>
 				<texture fallback="common/black.png">$INFO[Window.Property(ImageFilter)]</texture>
 			</control>
 			<control type="image">
-				<left>729</left>
+				<left>499</left>
 				<width>1950</width>
 				<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
 				<height>1080</height>
@@ -758,7 +758,8 @@
 											<font>font12</font>
 											<textcolor>FFFAFAFA</textcolor>
 											<animation effect="fade" start="100" end="70" time="0" condition="Control.HasFocus(1000)">Conditional</animation>
-											<label>$INFO[ListItem.Label]$INFO[ListItem.Property(character),[COLOR FF999999][CR] $LOCALIZE[20347] ,[/COLOR]]</label>
+											<!--cast name before hover-->
+											<label fallback="ACTOR_NAME">$INFO[ListItem.Label]$INFO[ListItem.Property(character),[COLOR FF999999][CR] $LOCALIZE[20347] ,[/COLOR]]</label>
 										</control>
 									</control>
 								</control>
@@ -869,7 +870,9 @@
 											<width>224</width>
 											<height>325</height>
 											<textcolor>FFFAFAFA</textcolor>
+											<!--crew image alternative replace with department of work if no image-->
 											<label>[B]$INFO[ListItem.Property(department)][/B]</label>
+											<!--<label>changes</label>-->
 											<font>font13</font>
 											<align>center</align>
 										</control>
@@ -897,6 +900,7 @@
 											<top>340</top>
 											<align>center</align>
 											<font>font12</font>
+											<!--crew name-->
 											<label>$INFO[ListItem.Label]$INFO[ListItem.Property(job),[COLOR FF999999][CR],[/COLOR]]</label>
 										</control>
 									</control>
@@ -1058,6 +1062,7 @@
 											<font>font10</font>
 											<aligny>center</aligny>
 											<align>left</align>
+											<!--year of recommanded movie before focus-->
 											<label>$INFO[ListItem.Year]</label>
 										</control>
 										<control type="image">
@@ -1145,6 +1150,7 @@
 											<font>font10</font>
 											<aligny>center</aligny>
 											<align>left</align>
+											<!--year of recommanded movie displayed on focus-->
 											<label>$INFO[ListItem.Year]</label>
 										</control>
 										<control type="textbox">
@@ -1155,6 +1161,7 @@
 											<top>340</top>
 											<align>center</align>
 											<font>font12</font>
+											<!--title of movie on focus-->
 											<label>$INFO[ListItem.Label]</label>
 											<autoscroll delay="5000" time="2000" repeat="8001">true</autoscroll>
 										</control>
@@ -2900,10 +2907,12 @@
 									<height>38</height>
 									<align>center</align>
 									<textcolor>FFFAFAFA</textcolor>
+									<!--Release date-->
 									<label fallback="?">[B]$INFO[Window.Property(Premiered)][/B]</label>
 									<font>font13</font>
 								</control>
 								<control type="label">
+									<!--Released info control-->
 									<left>0</left>
 									<top>37</top>
 									<width>220</width>
@@ -3025,29 +3034,32 @@
 			<!--<animation effect="slide" end="-749,0" time="450" tween="sine" easing="inout" condition="!Control.HasFocus(132) + !ControlGroup(5000).HasFocus">Conditional</animation>-->
 			<control type="image">
 				<left>-10</left>
-				<top>-10</top>
-				<width>749</width>
+				<!--<top>10</top>-->
+				<width>509</width>
 				<height>1100</height>
-				<aspectratio aligny="top">scale</aspectratio>
+				<aspectratio align="center">scale</aspectratio>
 				<texture background="true">common/black.png</texture>
 				<bordertexture colordiffuse="$INFO[Window(home).Property(ImageColor)]" border="10">thumbs/homewidget_shadow.png</bordertexture>
 				<bordersize>0</bordersize>
 			</control>
 			<control type="image">
-				<width>729</width>
-				<height>1080</height>
+				<left>10</left>
+				<top>175</top>
+				<width>479</width>
+				<height>750</height>
 				<fadetime>300</fadetime>
-				<aspectratio aligny="top">scale</aspectratio>
-				<texture>$INFO[Window.Property(Poster)]</texture>
+				<align>center</align>
+				<aspectratio aligny="center">keep</aspectratio>
+				<texture colordiffuse="$INFO[Window(home).Property(ImageColor)]">$INFO[Window.Property(Poster)]</texture>
 			</control>
 			<control type="image">
-				<top>0</top>
-				<width>729</width>
-				<height>1080</height>
+				<!--<top>0</top>-->
+				<width>479</width>
+				<height>750</height>
 				<fadetime>300</fadetime>
-				<aspectratio aligny="center">keep</aspectratio>
+				<aspectratio align="center">keep</aspectratio>
 				<visible>String.IsEqual(Window.Property(type),episode)</visible>
-				<texture>$INFO[Window.Property(still_original)]</texture>
+				<texture colordiffuse="$INFO[Window(home).Property(ImageColor)]">$INFO[Window.Property(still_original)]</texture>
 			</control>
 		</control>
 	</controls>
