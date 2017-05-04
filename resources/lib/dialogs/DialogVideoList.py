@@ -34,6 +34,33 @@ ch = ActionHandler()
 include_adult = addon.setting("include_adults").lower()
 
 
+class MyFirstWinXML(xbmcgui.WindowXMLDialog):
+    def __init__(self,strXMLname, strFallbackPath, strDefaultName, forceFallback):
+        # Changing the three varibles passed won't change, anything
+        # Doing strXMLname = "bah.xml" will not change anything.
+        # don't put GUI sensitive stuff here (as the xml hasn't been read yet
+        # Idea to initialize your variables here
+        pass
+
+    def onInit(self):
+        # Put your List Populating code/ and GUI startup stuff here
+        pass
+
+    def onAction(self, action):
+        # Same as normal python Windows.
+        pass
+
+    def onClick(self, controlID):
+        """
+            Notice: onClick not onControl
+            Notice: it gives the ID of the control not the control object
+        """
+        pass
+
+    def onFocus(self, controlID):
+        pass
+
+
 def get_window(window_type):
 
     class DialogVideoList(DialogBaseList, window_type):
